@@ -17,10 +17,13 @@
 </form>
 
 <!-- Region search -->
-
-    <?php
+<?php
    makeDropdown($dbconnect, 'regions', 'Region_ID', 'Region', 'region_search', 'Region');
-   ?>
+?>
 
- 
+<!-- Sub region search  -->
+<?php
+   makeDropdown($dbconnect, 'sub_region', 'Sub_Region_ID', 'Sub_Region', 'sub_region_search', 'Sub Region');
+?>
+
 </div> <!-- / side bar -->

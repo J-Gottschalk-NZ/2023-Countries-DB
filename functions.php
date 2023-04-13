@@ -56,7 +56,14 @@ function makeDropdown($dbconnect, $table, $idField, $valueField, $pageName, $fir
 
 	// iterate through DB to create options
     while ($dropdownRs = mysqli_fetch_assoc($dropdownQuery)) {
+
+		// check value is not 'None'
+		if($dropdownRs[$valueField]!= "None") {
+
         echo '<option value="' . $dropdownRs[$idField] . '">' . $dropdownRs[$valueField] . '</option>';
+
+		}
+		
     }
 
     echo '</select>';
