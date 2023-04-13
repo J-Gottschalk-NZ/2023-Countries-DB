@@ -1,0 +1,216 @@
+body {
+    margin: auto;
+    padding: 50px;
+    color: #000;
+    font-family: 'Lato', sans-serif;
+}
+
+
+/* hide message if browser supports grid */
+@supports(display:grid) {
+    .message{
+        display: none;
+    }
+}
+
+/* message styling if grid not supported */
+.message {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+}
+
+
+/* Set up grid */
+.wrapper {
+    display: grid;
+    grid-template-columns: 300px;
+    grid-template-rows: auto;
+    grid-template-areas: 
+        "logo banner"
+        "side main"
+        "foot foot";
+        
+    background-color: #fff;
+    grid-gap: 4px;
+    }
+
+
+.box {
+    background-color: #444; /* dark grey */
+    border-radius: 5px;
+    padding: 20px;
+    }
+
+
+/* make logo and banner the same colour */
+.logo, .main {
+    background-color: #d7d7d7;  /* pale grey */
+}
+
+.banner, .side {
+    background-color: #abd0e1; /* pale blue */
+}
+
+
+.logo {
+    grid-area: logo;
+    height: 180px;
+    border-radius: 0 5px 5px 0;
+    padding-left: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    
+    
+}
+
+.banner {
+    grid-area: banner;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 150%;
+    max-height: 180px;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+
+.main {
+    grid-area: main;
+    color: #000;
+}
+
+.side {
+    grid-area: side;
+    font-size: 14px;
+}
+
+.footer {
+    grid-area: foot;
+    text-align: right;
+    color: #fff;
+    background-color: #636263;
+}
+
+
+/*** Headings ***/
+
+h1, h2, h3, h4 {
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.sub_heading {
+    font-family: 'Ubuntu', sans-serif;
+    color: #593849;
+    font-weight: bold;
+}
+
+/***** Links *****/
+
+/* links in page */
+
+a:link{color: #285376;}
+a:visited{color: #333;}
+a:hover{color: #8f3700;}
+
+/* side links */
+a.side {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 100%;
+    text-decoration: none;
+}
+a.side:link, a.side:visited {color: #636263;}
+a.side:hover {color:#8a1737; }
+
+
+/**** Results ****/
+
+.results {
+    background-color: #f4ebe1;
+    border-radius: 10px;
+    border: 1px solid #000;
+    padding: 5px;
+}
+
+
+/*  Background colours based on Quality scores */
+
+.unknown {
+    background-color: #efefef;
+}
+
+.yikes {
+    background-color: #e6b8af;
+}
+
+.very_low {
+    background-color: #f4cccc;   
+}
+
+.low {
+    background-color: #fce5cd;
+}
+
+.average {
+    background-color: #fff2cc;
+}
+
+.good {
+    background-color: #d9ead3;
+}
+
+.great {
+    background-color: #d0e0e3;
+}
+
+.incredible {
+    background-color: #c9daf8;
+}
+
+/* Error message formatting */
+
+.error {
+    background-color: #ffe0ed;
+    border: 2px solid #8a1737;
+    color: #8a1737;
+    border-radius: 5px;
+    padding: 20px;
+    }
+
+
+/* Side bar form styling */
+.searchform {
+    margin: 5px;
+}
+
+input{
+    height: 40px;
+    width: 95%;
+    padding: 10px;
+    display: inline-block;
+    box-sizing: border-box;
+}
+
+select{
+    height: 40px;
+    width: 95%;
+}
+
+input.search[type=text], select {
+    width: 200px;
+}
+
+/* submit button, width applies to small button next to basic name / developer search */
+.submit {
+    font-family: FontAwesome, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    position:relative;
+    width: 40px;
+    left:-1px;
+    background-color: #636263; 
+    color:#d6d3d7;
+    border: 1px solid #636263;
+    border-radius: 0 5px 5px 0;    
+}
+
+
+
+
