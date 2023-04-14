@@ -1,9 +1,9 @@
 <div class="box side">
            
-<h2>Search Area</h2>
+<h2 class="side_heading">Add / Explore</h2>
 
 <p>
-<a href="index.php?page=showall">Show all</a>
+  <a class="button side blue_grey_btn" href="index.php?page=showall">Show all</a>
 </p>
 
 <!-- Quick Search form -->
@@ -18,12 +18,22 @@
 
 <!-- Region search -->
 <?php
-   makeDropdown($dbconnect, 'regions', 'Region_ID', 'Region', 'region_search', 'Region');
+   makeDropdown($dbconnect, 'regions', 'Region_ID', 'Region', 'region_search', 'Region', 'Region');
 ?>
 
 <!-- Sub region search  -->
 <?php
-   makeDropdown($dbconnect, 'sub_region', 'Sub_Region_ID', 'Sub_Region', 'sub_region_search', 'Sub Region');
+   makeDropdown($dbconnect, 'sub_region', 'Sub_Region_ID', 'Sub_Region', 'sub_region_search', 'Sub Region', 'Sub_Region');
 ?>
+
+<!-- Quality of Life Drop down -->
+<?php
+   makeDropdown($dbconnect, 'quality', 'Quality_ID', 'Quality', 'quality_search', 'Quality of Life', 'Quality_ID');
+?>
+
+<!-- Mythical Animal Search -->
+<p>
+  <a class="button side blue_grey_btn" href="index.php?page=mythical">Mythical National Animal</a>
+</p>
 
 </div> <!-- / side bar -->

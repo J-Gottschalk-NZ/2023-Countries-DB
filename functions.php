@@ -34,25 +34,27 @@ function get_query($dbconnect, $where_condition)
 	// Concatenate the WHERE condition to the query
 	$find_sql .= " WHERE " . $where_condition;
 
+	// Add in ordering!
+	$find_sql .= " ORDER BY c.Country ASC";
+
 	$find_query = mysqli_query($dbconnect, $find_sql);
 	return $find_query;
 }
 
-
 // function to generate drop down boxes
 // Made with the help of Chat GPT
-function makeDropdown($dbconnect, $table, $idField, $valueField, $pageName, $firstItem) {
+function makeDropdown($dbconnect, $table, $idField, $valueField, $pageName, $firstItem, $orderBy) {
 
 	echo '<form class="searchform" method="post" action="index.php?page=$pageName" enctype="multipart/form-data">';
 
-    $dropdownSql = "SELECT * FROM `$table` ORDER BY `$valueField` ASC";
+    $dropdownSql = "SELECT * FROM `$table` ORDER BY `$orderBy` ASC";
     $dropdownQuery = mysqli_query($dbconnect, $dropdownSql);
 
 	// Start of select area
-    echo '<select class="search" name="' . $table . '">';
+    echo '<select class="search" name="' . $table . '" required>';
 
 	// first option 
-	echo '<option value="" selected>' . $firstItem . '</option>';
+	echo '<option value="" selected disabled hidden>' . $firstItem . '</option>';
 
 	// iterate through DB to create options
     while ($dropdownRs = mysqli_fetch_assoc($dropdownQuery)) {
@@ -73,6 +75,17 @@ function makeDropdown($dbconnect, $table, $idField, $valueField, $pageName, $fir
     echo '<input class="submit" type="submit" name="' . $table . '_find" value="&#xf002;" formaction="index.php?page=' . $pageName . '" />';
 
 	echo '</form>';
+}
+
+
+// Retrieve heading based on ID number 
+function get_heading($dbconnect, $table, $idField, $valueField, $to_find) {
+	$heading_sql = "SELECT * FROM $table WHERE $idField = $to_find";
+	$heading_query = mysqli_query($dbconnect, $heading_sql);
+	$heading_rs = mysqli_fetch_assoc($heading_query);
+
+	$heading_name = $heading_rs[$valueField];
+	return $heading_name;
 }
 
 ?>
