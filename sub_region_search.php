@@ -11,11 +11,13 @@ sr2.Sub_Region_ID = $region_find
 
 $find_query = get_query($dbconnect, $where);
 $num_results = mysqli_num_rows($find_query);
-$region_heading = mysqli_fetch_assoc($find_query);
+
+// Get heading
+$subregion_heading = get_heading($dbconnect, "sub_region", "Sub_Region_ID", "Sub_Region", $region_find);
 
 ?>
 
-<h2>Region Results (<?php echo $region_heading['SubRegion1']; ?>, <?php echo $num_results ?> countries)</h2>
+<h2>Subregion Results (<?php echo $subregion_heading; ?>, <?php echo $num_results ?> countries)</h2>
 
 
 <?php

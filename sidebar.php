@@ -1,7 +1,5 @@
 <div class="box side">
            
-<h2 class="side_heading">Add / Explore</h2>
-
 <p>
   <a class="button side blue_grey_btn" href="index.php?page=showall">Show all</a>
 </p>
@@ -18,22 +16,29 @@
 
 <!-- Region search -->
 <?php
-   makeDropdown($dbconnect, 'regions', 'Region_ID', 'Region', 'region_search', 'Region', 'Region');
+   makeDropdownForm($dbconnect, 'regions', 'Region_ID', 'Region', 'region_search', 'Region', 'Region');
 ?>
 
 <!-- Sub region search  -->
 <?php
-   makeDropdown($dbconnect, 'sub_region', 'Sub_Region_ID', 'Sub_Region', 'sub_region_search', 'Sub Region', 'Sub_Region');
+   makeDropdownForm($dbconnect, 'sub_region', 'Sub_Region_ID', 'Sub_Region', 'sub_region_search', 'Sub Region', 'Sub_Region');
 ?>
 
 <!-- Quality of Life Drop down -->
 <?php
-   makeDropdown($dbconnect, 'quality', 'Quality_ID', 'Quality', 'quality_search', 'Quality of Life', 'Quality_ID');
+   makeDropdownForm($dbconnect, 'quality', 'Quality_ID', 'Quality', 'quality_search', 'Quality of Life', 'Quality_ID');
 ?>
 
 <!-- Mythical Animal Search -->
 <p>
   <a class="button side blue_grey_btn" href="index.php?page=mythical">Mythical National Animal</a>
+</p>
+
+<hr />
+
+<!-- Add Entry form -->
+<p>
+  <a class="button side orange_grey_btn" href="index.php?page=add_entry">Add Entry</a>
 </p>
 
 </div> <!-- / side bar -->

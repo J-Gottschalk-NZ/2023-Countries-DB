@@ -79,30 +79,8 @@ while($find_rs=mysqli_fetch_assoc($find_query))
     }
 
 
-    ?>
+    include("results.php");
 
-    <div class="results <?php echo $quality_descriptor; ?>">
-        <!-- Country heading -->
-        <h3>
-            <?php echo $find_rs['Country']; ?> 
-            <i>(<?php echo $find_rs['Official_Name']; ?>)</i>
-        </h3>
-
-        <p>
-            <b>Region: </b><?php echo $find_rs['Region']; ?><br />
-            <b><?php echo $sub_heading; ?>: </b><?php echo $subregions; ?>
-        </p>
-
-        <p><b>National Animal: 
-            </b><?php echo $find_rs['Animal_Name']; ?></p>
-        <p><b>Quality of Life Score: </b> <?php echo $quality_output; ?></p>
-
-        
-
-    </div>
-    <br />
-
-    <?php
 }
 
 ?>

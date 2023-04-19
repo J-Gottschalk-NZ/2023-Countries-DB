@@ -1,7 +1,29 @@
 <?php
 
-// Retrieve search term from form
-$quality_find = mysqli_real_escape_string($dbconnect, $_POST['quality']);
+// retrieve value from search form
+if (isset($_POST['quality']))
+{
+    $quality_find = mysqli_real_escape_string($dbconnect, $_POST['quality']);
+}
+
+// retrieve value from link
+elseif(isset($_REQUEST['quality'])) {
+    $quality_score = $_REQUEST['quality'];
+
+    if($quality_score == 0) {$quality_find = 1; } # unknown
+    elseif ($quality_score < 40) {$quality_find = 2;} # yikes
+    elseif ($quality_score < 48) {$quality_find = 3;} # very low
+    elseif ($quality_score < 52) {$quality_find = 4;} # low
+    elseif ($quality_score < 58) {$quality_find = 5;} # average
+    elseif ($quality_score < 67) {$quality_find = 6;} # good
+    elseif ($quality_score < 70) {$quality_find = 7;} # great
+    else {$quality_find = 8;} # incredible
+}
+
+else {
+    // send user back to index page
+    header('Location: index.php');
+}
 
 // Create where clause for our various descriptors
 if($quality_find == 1) 

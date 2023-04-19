@@ -10,11 +10,12 @@ c.Region_ID = $region_find
 
 $find_query = get_query($dbconnect, $where);
 $num_results = mysqli_num_rows($find_query);
-$region_heading = mysqli_fetch_assoc($find_query);
+
+$region_heading = get_heading($dbconnect, "regions", "Region_ID", "Region", $region_find);
 
 ?>
 
-<h2>Region Results (<?php echo $region_heading['Region']; ?>, <?php echo $num_results ?> countries)</h2>
+<h2>Region Results (<?php echo $region_heading; ?>, <?php echo $num_results ?> countries)</h2>
 
 
 <?php
